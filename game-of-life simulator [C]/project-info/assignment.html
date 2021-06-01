@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Programming practices" />
+  <title>COMP 2160 – Assignment 2</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+body { margin: 20px; font-family: Lato,'Lucida Sans Unicode','Lucida Grande',sans-serif; line-height: 1.5em; } 
+table { border-collapse: collapse; } 
+table,th,td { border: 1px solid #ddd; padding: 10px; margin: 10px; } 
+del, del > a, del > mark > a {color: lightgray; text-decoration-color: lightgray;} 
+ins > a {text-decoration-line: underline; text-decoration-style: wavy} 
+pre > code {background: black; color: white; padding: 1em; font-family: monospace; line-height: normal; display: block;}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">COMP 2160 &ndash; Assignment 2</h1>
+<p class="author">Programming practices</p>
+<p class="date">Due October <sup>30th</sup>, 2020 at 11:59pm</p>
+</header><nav id="TOC">
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#objectives">Objectives</a></li>
+<li><a href="#requirements">Implementation Requirements</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#submitting-your-assignment">Submitting your assignment</a></li>
+<li><a href="#evaluation">Evaluation</a></li>
+</ul>
+</nav>
+<h1 id="objectives">Objectives</h1>
+<ul>
+<li>Applying the principles of Design by Contract.</li>
+</ul>
+<h1 id="description">Description</h1>
+<p>In this assignment you will write a program that implements&nbsp; Conway's <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">Game of Life</a>. You will be expected to apply the principles of Design by Contract to your code.</p>
+<p>The rules for the Game of Life are simple. The universe consists of a two-dimensional matrix of cells with each cell being alive or dead. For each generation every cell determines its next phase of life as follows:</p>
+<ul>
+<li>If the cell is alive:
+<ol>
+<li>it dies if it has 0, 1, 4 or more living neighbours (starvation), or</li>
+<li>it lives if it has 2 or 3 living neighbours (balance).</li>
+</ol>
+</li>
+<li>If the cell is dead:
+<ol>
+<li>it springs to life if it has exactly 3 neighbours (procreation).</li>
+</ol>
+</li>
+</ul>
+<p>A cycle occurs as soon as the state of the universe of the latest generation is the same as a previous generation. You should be able to see that once this occurs the Game of Life will repeat the intermediate generations forever.</p>
+<h1 id="requirements">Implementation Requirements</h1>
+<p>All of the following conditions must be met by your solution.</p>
+<ul>
+<li>Your program must read the initial state from standard input (redirecting files on the command line is the way to go!). Here is a <a href="life.txt" target="_self">sample</a> input file to use for testing. You will be expected to adequately test your program -- I will not be providing the files used by your marker. All input will conform to the following format:
+<ul>
+<li>The input will consist of starting universes for multiple games. Play each game completely, in the order they appear in the file.</li>
+<li>The first line of the game starts with an asterisk and contains the game title.</li>
+<li>The second line of the game contains two numbers, separated by a space, which indicate the number of rows and columns for the 2-D matrix.</li>
+<li>Then there is one line for each row in the matrix:
+<ul>
+<li>A blank character represents a dead cell.</li>
+<li>An 'X' represents an alive cell.</li>
+</ul>
+</li>
+<li>The next game starts on the next line, until EOF.</li>
+<li>There are no errors in the input file format.</li>
+</ul>
+</li>
+<li>For each game, your program will first print the game title as read from the file. Print the starting universe as read in. Then, after each generation is calculated your program will print the current state of the universe. All printing goes to standard output, and each universe must be preceded by a label indicating the generation number (where the initial state is generation 0). Here is a <a href="lifeOut.txt" target="_self">sample</a> of the output expected. You must include a border, use '.' for dead cells and '*' for alive cells.</li>
+<li>Each game will run for 250 generations or until a cycle is detected, whichever comes first. If the game ends because of a cycle, print the numbers of the two generations that were duplicated.</li>
+<li>Your program <em>must</em> include appropriate pre and post conditions.</li>
+<li>Printing all generations may be great for debugging purposes (and should prove mesmerizing) but the release version should only print the initial universe, and the last 10 (or less) generations. When your program is compiled with -DNDEBUG, the behaviour must change from printing all generations to only printing the last 10. The sample output linked above is run with -DNDEBUG.</li>
+</ul>
+<h1 id="notes">Notes</h1>
+<p>The following should help point you in the right direction:</p>
+<ul>
+<li>Read the <em>entire</em> assignment document before starting.</li>
+<li><strong>DO NOT</strong> leave this assignment until the last minute. Otherwise, you will NOT get it done on time.</li>
+<li>Store the universe in a two-dimensional array, but be careful that your program avoids subscripting your array "out of bounds". Not checking for array boundaries may lead to your program crashing, or worse, giving the wrong results. Here is a <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=408555&amp;type=content&amp;rcode=UManitoba-1019497" target="_blank" rel="noopener">document</a> detailing what you need to know about using two-dimensional arrays.</li>
+<li>You will need to store all previous generations in order to identify a cycle. To do this, consider using a <code>struct</code> to represent a generation. Then, you can employ an array of objects to track your universe's history.</li>
+<li>You may assume file input lines are at most 80 characters, and a universe is at most 60x60 cells.</li>
+<li>Your program must run correctly both with assertions enabled and disabled (when compiled with and without the <code>-DNDEBUG</code> option).</li>
+<li>Please be sure to follow the <a href="../programming-standards.html">programming standards</a>; not doing so will result in a loss of marks.</li>
+<li>Remember to complete the Honesty Declaration Checklist (you will not receive scores for your assignments until the checklist is completed).</li>
+<li>All submitted assignments will be scanned with automated software to monitor for academic integrity violations.</li>
+<li>Your assignment code must be handed in electronically. See the Submitting your assignment section below for more information.</li>
+<li>Late assignments are not accepted. The due date is enforced electronically.</li>
+</ul>
+<h1 id="submitting-your-assignment">Submitting your assignment</h1>
+<p>Create a directory called <code>comp2160-a2-&lt;yourlastname&gt;-&lt;yourstudentid&gt;</code>, and place your <code>.c</code> files inside the directory.</p>
+<p>Then run the command:</p>
+<div class="sourceCode" id="cb3">
+<pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">handin</span> 2160 a2 comp2160-a2-<span class="op">&lt;</span>yourlastname<span class="op">&gt;</span>-<span class="op">&lt;</span>yourstudentid<span class="op">&gt;</span></a></code></pre>
+</div>
+<ul>
+<li>You may <em>optionally</em> include a <code>README</code> file in your directory that explains anything unusual about compiling or running your programs.</li>
+<li>You may resubmit your assignment as many times as you want, but <strong>only the last</strong>&nbsp;submission will be kept.</li>
+<li>We only accept homework submissions via <code>handin</code>. Please <strong>do not</strong> e-mail your homework to the instructor or TAs &ndash; it will be ignored.</li>
+<li>You <strong>must</strong> submit an Honesty Declaration (digitally on UM Learn). Assignments submitted without a corresponding Honesty Declaration <strong>will not be graded</strong>.</li>
+<li>We reserve the right to refuse to grade the homework, or to deduct marks if these instructions are not followed.</li>
+</ul>
+<h1 id="evaluation">Evaluation</h1>
+<ul></ul>
+<p>The grading guide is available as a <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=408555&amp;type=rubric&amp;rCode=UManitoba-1374861" target="_blank" rel="noopener">rubric</a>.</p>
+</body>
+</html>

@@ -1,0 +1,158 @@
+CREATE USER: CONFIRMED! user 'mike' created
+
+CREATE DOCUMENT: CONFIRMED! document 'Object_Oriented_Programming' created
+
+CREATE DOCUMENT: CONFIRMED! document 'Operating_System' created
+
+CREATE DOCUMENT: NOT FOUND! user 'ali' does not exist
+
+APPEND: SUCCESS! appended 'OO programming is awesome.' in document Object_Oriented_Programming
+
+APPEND: NOT FOUND! document 'Graph_Theory' or user 'ali' does not exist
+
+APPEND: SUCCESS! appended 'I love OO programing.' in document Object_Oriented_Programming
+
+APPEND: SUCCESS! appended 'everyone likes pointers in Cpp' in document Object_Oriented_Programming
+
+PRINT DOCUMENT: NOT FOUND! document 'Graph_Theory' does not exist
+
+DELETE: NOT FOUND! document 'Graph_Theory' or user 'mike' does not exist
+
+DELETE: FAIL to delete! line 5 does not exist in document Object_Oriented_Programming
+
+CREATE USER: CONFIRMED! user 'ali' created
+
+CREATE DOCUMENT: CONFIRMED! document 'Graph_Theory' created
+
+APPEND: NOT FOUND! document 'Human_Computer_Interaction' or user 'john' does not exist
+
+CREATE USER: DUPLICATE! user 'mike' already exists
+
+CREATE DOCUMENT: NOT FOUND! user 'john' does not exist
+
+APPEND: NOT FOUND! document 'Human_Computer_Interaction' or user 'ali' does not exist
+
+RESTORE: NOT FOUND. Document Graph_Theory did not exist at time 5
+
+REPLACE: SUCCESS! line 2 replaced in document Object_Oriented_Programming
+
+REPLACE: FAIL to replace! line 1 does not exist in document Graph_Theory
+
+APPEND: SUCCESS! appended 'graph theory is an interesting course' in document Graph_Theory
+
+DELETE: NOT FOUND! document 'Graph_Theory' or user 'john' does not exist
+
+RESTORE: NOT FOUND! document 'History_of_programming_languages' / user 'mike' does not exist or invalid time given
+
+RESTORE: NOT FOUND! document 'Graph_Theory' / user 'John' does not exist or invalid time given
+
+PRINT DOCUMENT: NOT FOUND! document 'Automata_Theory' does not exist
+
+CREATE DOCUMENT: DUPLICATE! document 'Object_Oriented_Programming' already exists
+
+CREATE USER: CONFIRMED! user 'john' created
+
+RESTORE: SUCCESS! document Graph_Theory restored to time 15
+
+DELETE: NOT FOUND! document 'Java_Programming_language' or user 'mike' does not exist
+
+CREATE DOCUMENT: DUPLICATE! document 'Graph_Theory' already exists
+
+DELETE: NOT FOUND! document 'Java_Programming_language' or user 'mike' does not exist
+
+DELETE: FAIL to delete! line 1 does not exist in document Graph_Theory
+
+DELETE: FAIL to delete! line 0 does not exist in document Graph_Theory
+
+DELETE: FAIL to delete! line 0 does not exist in document Graph_Theory
+
+RESTORE: SUCCESS! document Graph_Theory restored to time 32
+
+RESTORE: SUCCESS! document Object_Oriented_Programming restored to time 18
+
+RESTORE: SUCCESS! document Object_Oriented_Programming restored to time 25
+
+PRINT DOCUMENT: NOT FOUND! document 'Automata_Theory' does not exist
+
+Printing document 'Object_Oriented_Programming'...
+(0) OO programming is awesome.
+(1) I love OO programing.
+(2) Pointers are useful in Cpp
+----------------------------
+
+PRINT DOCUMENT: NOT FOUND! document 'Human_Computer_Interaction' does not exist
+
+Printing document 'Graph_Theory'...
+[Empty]
+----------------------------
+
+Printing document 'Operating_System'...
+[Empty]
+----------------------------
+
+PRINT DOCUMENT HISTORY: NOT FOUND! document 'Automata_Theory' does not exist
+
+Printing history of document 'Object_Oriented_Programming'...
+(0) User mike restored to time 25
+(1) User mike restored to time 18
+(2) User mike REPLACED line 2 from 'everyone likes pointers in Cpp' to 'Pointers are useful in Cpp'
+(3) User mike APPENDED 'everyone likes pointers in Cpp'
+(4) User mike APPENDED 'I love OO programing.'
+(5) User mike APPENDED 'OO programming is awesome.'
+(6) User mike created document
+----------------------------
+
+PRINT DOCUMENT HISTORY: NOT FOUND! document 'Human_Computer_Interaction' does not exist
+
+Printing history of document 'Graph_Theory'...
+(0) User ali restored to time 32
+(1) User ali restored to time 15
+(2) User ali APPENDED 'graph theory is an interesting course'
+(3) User ali created document
+----------------------------
+
+Printing history of document 'Operating_System'...
+(0) User mike created document
+----------------------------
+
+PRINT USER HISTORY: NOT FOUND! user 'andrea' does not exist
+
+Printing history of user 'ali'...
+(0) CREATED document Graph_Theory
+(1) APPENDED 'graph theory is an interesting course' in document Graph_Theory
+(2) RESTORED document 'Graph_Theory' to time 15
+(3) RESTORED document 'Graph_Theory' to time 32
+----------------------------
+
+Printing history of user 'mike'...
+(0) CREATED document Object_Oriented_Programming
+(1) CREATED document Operating_System
+(2) APPENDED 'OO programming is awesome.' in document Object_Oriented_Programming
+(3) APPENDED 'I love OO programing.' in document Object_Oriented_Programming
+(4) APPENDED 'everyone likes pointers in Cpp' in document Object_Oriented_Programming
+(5) Replaced line 2 from content 'everyone likes pointers in Cpp' to 'Pointers are useful in Cpp' in document Object_Oriented_Programming
+(6) RESTORED document 'Object_Oriented_Programming' to time 18
+(7) RESTORED document 'Object_Oriented_Programming' to time 25
+----------------------------
+
+PRINT USER HISTORY: NOT FOUND! user 'mary' does not exist
+
+Printing history of user 'john'...
+[Empty]
+----------------------------
+
+CREATE DOCUMENT: CONFIRMED! document 'Discrete_Math' created
+
+APPEND: SUCCESS! appended 'Discrete math is the study of math that is discreet' in document Discrete_Math
+
+REPLACE: NOT FOUND! document 'Discrete_Math' or user 'michael' does not exist
+
+REPLACE: FAIL to replace! line 1 does not exist in document Discrete_Math
+
+
+
+BYE! Program finished successfully
+
+
+
+Process finished with exit code 0

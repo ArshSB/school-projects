@@ -1,0 +1,54 @@
+
+List of prompts for A3 - whodunnit: use the following prompts for your A3 solution.
+ - In all of these prompts, information in <angle brackets> is information from variables. <idx> is the player index.
+ - In the event of any discrepancies between this document and any demos, this document is correct.
+ - This list does not include all prompts shown in the main method.
+ 
+General format:
+
+ - Card: just the name of the card.
+ - Guess: either 
+    1) "Suggestion: <suspect> in <location> with the <weapon>."
+    2) "Accusation: <suspect> in <location> with the <weapon>."
+
+
+Game Play:
+
+At the start of a player's turn: "Current turn: <idx>" 
+When a player makes a guess: "Player <idx>: <guess>"
+When a player's suggestion is being answered:
+ - "Asking player <idx>."
+ - "Player <idx> answered."
+ - "No one could answer."
+Game is won: "Player <idx> won the game."
+Bad accusation: "Player <idx> made a bad accusation and was removed from the game."
+
+Information for interactive player:
+
+Showing all information:
+ "Here are the names of all the suspects:" (list all on next line, separated by commas)
+ "Here are all the locations:" (list all on next line, separated by commas)
+ "Here are all the weapons:" (list all on next line, separated by commas)
+ 
+Being dealt a card: "You received the card <card>"
+
+Prompts for responding to another player's suggestion:
+ - Human Player can't respond to a suggestion: "Player <idx> asked you about <guess>, but you couldn't answer." 
+ - Human Player only has one card to respond to a suggestion: "Player <idx> asked you about <guess>, you only have one card, <card>, showed it to them."
+ - Human Player has multiple cards to respond to a suggestion: "Player <idx> asked you about <guess>. Which do you show?" 
+    format of options (on next lines) is "<num>: <card>"
+
+Start of turn: "It is your turn."
+Ask for person: "Which person do you want to suggest?"
+Ask for place: "Which location do you want to suggest?"
+Ask for weapon: Which weapon do you want to suggest?"
+ format of options (on next lines) is "<num>: <card>"
+Ask for suggestion/accusation: "Is this an accusation (Y/[N])?"
+ (note: player should be able to type enter, n or N for no. should be able to type y or Y for yes.)
+ 
+Receving info for Human Player:
+ - "Player <idx> refuted your suggestion by showing you <c>."
+ - "No one could refute your suggestion."
+ 
+ 
+

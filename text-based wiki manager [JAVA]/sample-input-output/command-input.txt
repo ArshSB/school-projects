@@ -1,0 +1,64 @@
+#This is the beginning of the file 
+USER mike                                                                                 
+CREATE Object_Oriented_Programming mike                                                  
+CREATE Operating_System mike                                                           
+CREATE Graph_Theory ali                                                                   
+APPEND Object_Oriented_Programming mike OO programming is awesome.                       
+APPEND Graph_Theory ali I love graph theory                                               
+APPEND Object_Oriented_Programming mike I love OO programing. 
+#Pointers are really important in object oriented programing                            
+APPEND Object_Oriented_Programming mike everyone likes pointers in Cpp                    
+PRINT Graph_Theory
+DELETE Graph_Theory mike 0                                                                
+DELETE Object_Oriented_Programming mike 5                                                
+USER ali                                                                                 
+CREATE Graph_Theory ali                                                                   
+APPEND Human_Computer_Interaction john HCI is awesome.                                    
+USER mike                                                                                 
+CREATE Human_Computer_Interaction john                                                   
+APPEND Human_Computer_Interaction ali HCI is awesome.                                    
+RESTORE mike Graph_Theory 5						             
+REPLACE Object_Oriented_Programming mike 2 Pointers are useful in Cpp                     
+REPLACE Graph_Theory ali 1 I love graph theory                                           
+APPEND Graph_Theory ali    graph theory is an interesting course                            
+DELETE Graph_Theory john 0                                                              
+RESTORE mike History_of_programming_languages 10                                          
+RESTORE John Graph_Theory 12
+PRINT Automata_Theory
+CREATE Object_Oriented_Programming mike                                                   
+#user id = John
+USER john  
+RESTORE ali Graph_Theory 15
+DELETE Java_Programming_language mike 20 
+PRINT Graph_Theory
+CREATE Graph_Theory ali                                                                   
+DELETE Java_Programming_language mike 2 
+DELETE Graph_Theory ali 1                                                                 
+DELETE Graph_Theory ali 0                                                                 
+DELETE Graph_Theory ali 0                                                                 
+RESTORE ali Graph_Theory 32
+RESTORE mike Object_Oriented_Programming 18
+RESTORE mike Object_Oriented_Programming 25
+PRINT Automata_Theory
+PRINT Object_Oriented_Programming
+PRINT Human_Computer_Interaction
+PRINT Graph_Theory
+PRINT Operating_System
+HISTORY Automata_Theory
+HISTORY Object_Oriented_Programming
+HISTORY Human_Computer_Interaction
+HISTORY Graph_Theory
+HISTORY Operating_System
+USERREPORT andrea
+USERREPORT ali
+USERREPORT mike
+USERREPORT mary
+USERREPORT john
+CREATE Discrete_Math mike
+  APPEND Discrete_Math mike    Discrete math is the study of math that is discreet
+#fix typo
+REPLACE Discrete_Math michael 0 Discrete math is the study of math that is discrete
+REPLACE Discrete_Math mike 1    Discrete math is the study of math that is discrete
+#end of file
+QUIT
+USERREPORT michael
