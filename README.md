@@ -1,5 +1,3 @@
-# projects that will get me hired at Google ;)
-
 ## General information
 
 This repository holds some of the past course projects I have worked on throughout my studies at uManitoba.
